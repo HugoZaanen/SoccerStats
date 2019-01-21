@@ -31,9 +31,19 @@ namespace SoccerStats
             }
         }
 
-        public static List<string> ReadSoccerResults(string fileName)
+        public static List<string[]> ReadSoccerResults(string fileName)
         {
-                       
+            var soccerResults = new List<string[]>();
+            using (var reader = new StreamReader(fileName))
+            {
+                string line = "";
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] values = line.Split(',');
+                    soccerResults.Add(values);
+                }
+            }
+            return soccerResults;
         }
     }
 }
