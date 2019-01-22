@@ -26,7 +26,7 @@ namespace SoccerStats
             }
         }
 
-        public static List<GameResult[]> ReadSoccerResults(string fileName)
+        public static List<GameResult> ReadSoccerResults(string fileName)
         {
             var soccerResults = new List<GameResult>();
             using (var reader = new StreamReader(fileName))
@@ -64,6 +64,11 @@ namespace SoccerStats
                     if (int.TryParse(values[6], out parseInt))
                     {
                         gameResult.ShotsOffGoal = parseInt;
+                    }
+                    double PossessionPercent;
+                    if(double.TryParse(values[7], out PossessionPercent))
+                    {
+                        gameResult.PossessionPercent = PossessionPercent;
                     }
                     
                     soccerResults.Add(gameResult);
