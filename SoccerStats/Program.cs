@@ -130,7 +130,11 @@ namespace SoccerStats
             var WebClient = new WebClient();
             byte[] googleHome = WebClient.DownloadData("https://google.com");
 
-            
+            using (var stream = new MemoryStream(googleHome))
+            using(var reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
         }
     }
 }
