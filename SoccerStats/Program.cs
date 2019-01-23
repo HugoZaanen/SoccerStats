@@ -21,7 +21,7 @@ namespace SoccerStats
 
             foreach(var player in players)
             {
-                Console.WriteLine(player.second_name);
+                Console.WriteLine(player.FirstName);
             }
             Console.ReadKey();
         }
