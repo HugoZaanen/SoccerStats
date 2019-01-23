@@ -23,7 +23,6 @@ namespace SoccerStats
             {
                 Console.WriteLine(player.FirstName);
             }
-            Console.ReadKey();
         }
 
         public static string ReadFile(string fileName)
